@@ -477,12 +477,7 @@ $success_message = '';
     <div class="header-area2">
         <div class="container">
             <div class="row">
-                <div class="col-xl-1">
-                    <button class="btn">INFORMASI</button>
-                </div>
-                <div class="col-xl-10">
-                    <marquee behavior="scroll" direction="left" style="color:#fff;">Pengumuman : ini adalah fasilitas untuk memberikan infomasi atau pengumuman dengan text berjalan. </marquee>
-                </div>
+                <marquee behavior="scroll" direction="left" style="color:#fff;">Pengumuman : ini adalah fasilitas untuk memberikan infomasi atau pengumuman dengan text berjalan. </marquee>
             </div>
         </div>
     </div>
