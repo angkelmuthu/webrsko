@@ -1,0 +1,36 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2019-08-07 05:33:30 --> 404 Page Not Found: Public/css
+ERROR - 2019-08-07 05:33:35 --> 404 Page Not Found: Public/admin
+ERROR - 2019-08-07 05:34:54 --> 404 Page Not Found: Public/admin
+ERROR - 2019-08-07 05:34:55 --> 404 Page Not Found: Public/admin
+ERROR - 2019-08-07 05:35:26 --> 404 Page Not Found: Public/admin
+ERROR - 2019-08-07 05:35:27 --> 404 Page Not Found: Public/admin
+ERROR - 2019-08-07 05:36:08 --> 404 Page Not Found: Public/admin
+ERROR - 2019-08-07 05:36:10 --> 404 Page Not Found: Public/admin
+ERROR - 2019-08-07 05:37:01 --> 404 Page Not Found: Public/admin
+ERROR - 2019-08-07 05:37:11 --> 404 Page Not Found: Public/admin
+ERROR - 2019-08-07 05:37:11 --> 404 Page Not Found: Public/admin
+ERROR - 2019-08-07 05:38:02 --> 404 Page Not Found: admin//index
+ERROR - 2019-08-07 05:39:00 --> 404 Page Not Found: admin//index
+ERROR - 2019-08-07 05:40:23 --> 404 Page Not Found: Ngapainlo/index
+ERROR - 2019-08-07 07:01:39 --> 404 Page Not Found: Public/css
+ERROR - 2019-08-07 07:15:22 --> 404 Page Not Found: Public/admin
+ERROR - 2019-08-07 07:15:22 --> 404 Page Not Found: Public/admin
+ERROR - 2019-08-07 07:15:26 --> 404 Page Not Found: Public/admin
+ERROR - 2019-08-07 07:15:26 --> 404 Page Not Found: Public/admin
+ERROR - 2019-08-07 07:15:32 --> 404 Page Not Found: Public/admin
+ERROR - 2019-08-07 07:15:32 --> 404 Page Not Found: Public/admin
+ERROR - 2019-08-07 08:09:58 --> 404 Page Not Found: Public/css
+ERROR - 2019-08-07 08:17:19 --> 404 Page Not Found: Public/css
+ERROR - 2019-08-07 08:17:23 --> 404 Page Not Found: Public/css
+ERROR - 2019-08-07 08:17:37 --> 404 Page Not Found: Public/css
+ERROR - 2019-08-07 08:18:00 --> 404 Page Not Found: Public/css
+ERROR - 2019-08-07 22:52:55 --> 404 Page Not Found: Public/css
+ERROR - 2019-08-07 23:10:43 --> 404 Page Not Found: Public/css
+ERROR - 2019-08-07 23:11:30 --> 404 Page Not Found: Public/css
+ERROR - 2019-08-07 23:12:45 --> 404 Page Not Found: Public/css
+ERROR - 2019-08-07 23:13:39 --> 404 Page Not Found: Public/css
+ERROR - 2019-08-07 23:28:50 --> 404 Page Not Found: Public/css
+ERROR - 2019-08-07 23:30:54 --> 404 Page Not Found: Public/css
+ERROR - 2019-08-07 23:31:21 --> 404 Page Not Found: Public/css
