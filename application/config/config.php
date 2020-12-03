@@ -23,8 +23,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-date_default_timezone_set('America/New_York');
-$config['base_url'] = 'http://localhost/webrsko';
+date_default_timezone_set('Asia/Jakarta');
+$config['base_url'] = 'http://' . $_SERVER['SERVER_NAME'] . str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
 
 /*
 |--------------------------------------------------------------------------
