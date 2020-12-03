@@ -248,46 +248,44 @@
 <?php endif; ?>
 <!--Choose-Area End-->
 
-<!--Counter-Area Start-->
-<div class="counterup-area pt_30 pb_30" style="background-image: url(<?php echo base_url(); ?>public/uploads/batik.jpg)">
-    <div class="bg-counterup"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="headline">
-                    <h2 style="color:#fff;">LAYANAN UNGGULAN</h2>
+<!--akses pintas Start-->
+<?php if ($page_home['home_feature_status'] == 'Show') : ?>
+    <div class="counterup-area pt_30 pb_30" style="background-image: url(<?php echo base_url(); ?>public/uploads/batik.jpg)">
+        <div class="bg-counterup"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="headline">
+                        <h2 style="color:#fff;"><?php echo $page_home['home_feature_title']; ?></h2>
+                        <h3 style="color:#fff;"><?php echo $page_home['home_feature_subtitle']; ?></h3>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="counter-item flex">
-                    <h4><strong><?php echo strtoupper($page_home['counter_1_value']); ?></strong></h4>
-                    <p><?php echo $page_home['counter_1_title']; ?></p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="counter-item flex">
-                    <h4><strong><?php echo strtoupper($page_home['counter_2_value']); ?></strong></h4>
-                    <p><?php echo $page_home['counter_2_title']; ?></p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="counter-item flex">
-                    <h4><strong><?php echo strtoupper($page_home['counter_3_value']); ?></strong></h4>
-                    <p><?php echo $page_home['counter_3_title']; ?></p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="counter-item flex">
-                    <h4><strong><?php echo strtoupper($page_home['counter_4_value']); ?></strong></h4>
-                    <p><?php echo $page_home['counter_4_title']; ?></p>
-                </div>
+            <div class="row">
+                <?php
+                    foreach ($features as $row) {
+                        ?>
+                    <div class="col-lg-4 col-md-6">
+                        <a href="<?php echo $row['link']; ?>" style="text-decoration: none;" class="feature-item">
+                            <div class="feature-icon">
+                                <i class="<?php echo $row['icon']; ?>" aria-hidden="true"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4><?php echo $row['name']; ?></h4>
+                                <!-- <p>
+                                <?php echo nl2br($row['content']); ?>
+                            </p> -->
+                            </div>
+                        </a>
+                    </div>
+                <?php
+                    }
+                    ?>
             </div>
         </div>
     </div>
-</div>
-<!--Counter-Area End-->
+<?php endif; ?>
+<!--Feature-Area End-->
 
 
 <!--Services Start-->
@@ -332,45 +330,46 @@
 <?php endif; ?>
 <!--Services End-->
 
-
-<!--Feature-Area Start-->
-<?php if ($page_home['home_feature_status'] == 'Show') : ?>
-    <div class="counterup-area pt_30 pb_30" style="background-image: url(<?php echo base_url(); ?>public/uploads/batik.jpg)">
-        <div class="bg-counterup"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="headline">
-                        <h2 style="color:#fff;"><?php echo $page_home['home_feature_title']; ?></h2>
-                        <h3 style="color:#fff;"><?php echo $page_home['home_feature_subtitle']; ?></h3>
-                    </div>
+<!--layanan unggulan Start-->
+<div class="counterup-area pt_30 pb_30" style="background-image: url(<?php echo base_url(); ?>public/uploads/batik.jpg)">
+    <div class="bg-counterup"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="headline">
+                    <h2 style="color:#fff;">LAYANAN UNGGULAN</h2>
                 </div>
             </div>
-            <div class="row">
-                <?php
-                    foreach ($features as $row) {
-                        ?>
-                    <div class="col-lg-4 col-md-6">
-                        <a href="<?php echo $row['link']; ?>" style="text-decoration: none;" class="feature-item">
-                            <div class="feature-icon">
-                                <i class="<?php echo $row['icon']; ?>" aria-hidden="true"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4><?php echo $row['name']; ?></h4>
-                                <!-- <p>
-                                <?php echo nl2br($row['content']); ?>
-                            </p> -->
-                            </div>
-                        </a>
-                    </div>
-                <?php
-                    }
-                    ?>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="counter-item flex">
+                    <h4><strong><?php echo strtoupper($page_home['counter_1_value']); ?></strong></h4>
+                    <p><?php echo $page_home['counter_1_title']; ?></p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="counter-item flex">
+                    <h4><strong><?php echo strtoupper($page_home['counter_2_value']); ?></strong></h4>
+                    <p><?php echo $page_home['counter_2_title']; ?></p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="counter-item flex">
+                    <h4><strong><?php echo strtoupper($page_home['counter_3_value']); ?></strong></h4>
+                    <p><?php echo $page_home['counter_3_title']; ?></p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="counter-item flex">
+                    <h4><strong><?php echo strtoupper($page_home['counter_4_value']); ?></strong></h4>
+                    <p><?php echo $page_home['counter_4_title']; ?></p>
+                </div>
             </div>
         </div>
     </div>
-<?php endif; ?>
-<!--Feature-Area End-->
+</div>
+<!--Counter-Area End-->
 
 
 <!--Portfolio Start-->

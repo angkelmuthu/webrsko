@@ -12,7 +12,7 @@
 				</div>
 				<div class="panel-container show">
 					<div class="panel-content">
-						<form action="<?php echo $action; ?>" method="post">
+						<form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
 
 							<table class='table table-striped'>
 

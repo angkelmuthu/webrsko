@@ -183,6 +183,7 @@ $success_message = '';
     <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/style.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/spacing.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/responsive.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
 
     <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5993ef01e2587a001253a261&product=inline-share-buttons"></script>
 
@@ -526,7 +527,7 @@ $success_message = '';
                                     <li><a href="<?php echo base_url(); ?>photo-gallery"><?php echo PHOTO_GALLERY; ?></a></li>
                                     <!-- <li><a href="<?php echo base_url(); ?>testimonial"><?php echo TESTIMONIAL; ?></a></li> -->
                                     <!-- <li><a href="<?php echo base_url(); ?>faq"><?php echo FAQ; ?></a></li> -->
-                                    <li><a href="<?php echo base_url(); ?>category/1">Laporan</a></li>
+                                    <li><a href="<?php echo base_url(); ?>laporan">Laporan</a></li>
                                     <li><a href="<?php echo base_url(); ?>loker">Lowongan Kerja</a></li>
                                 </ul>
                             </li>

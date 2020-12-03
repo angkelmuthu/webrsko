@@ -198,8 +198,11 @@
     <script src="<?php echo base_url(); ?>public/js/waypoints.min.js"></script>
     <script src="<?php echo base_url(); ?>public/js/viewportchecker.js"></script>
     <script src="<?php echo base_url(); ?>public/js/custom.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
     <script>
         $(document).ready(function() {
+            $('#example').DataTable();
             $("#myModal").modal('show');
         });
     </script>
