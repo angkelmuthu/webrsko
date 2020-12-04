@@ -8,6 +8,11 @@ class Model_common extends CI_Model
         $query = $this->db->query("SELECT * from tbl_settings WHERE id=1");
         return $query->first_row('array');
     }
+    public function running_text()
+    {
+        $query = $this->db->query("SELECT * from tbl_running_text WHERE id=1");
+        return $query->first_row('array');
+    }
     public function all_page_home()
     {
         $query = $this->db->query("SELECT * from tbl_page_home WHERE id=1");

@@ -478,7 +478,10 @@ $success_message = '';
     <div class="header-area2">
         <div class="container">
             <div class="row">
-                <marquee behavior="scroll" direction="left" style="color:#fff;">Pengumuman : ini adalah fasilitas untuk memberikan infomasi atau pengumuman dengan text berjalan. </marquee>
+                <?php
+                $running_text = $this->Model_common->running_text();
+                ?>
+                <marquee behavior="scroll" direction="left" style="color:#fff;"><?php echo $running_text['isi']; ?></marquee>
             </div>
         </div>
     </div>
@@ -512,7 +515,7 @@ $success_message = '';
                                     <?php
                                     $plyn = $this->db->query("SELECT * FROM tbl_testimonial ORDER BY id ASC");
                                     foreach ($plyn->result() as $dt) {
-                                        ?>
+                                    ?>
                                         <li><a href="<?php echo base_url(); ?>pelayanan/view/<?php echo $dt->id; ?>"><?php echo $dt->name; ?></a></li>
                                     <?php } ?>
                                     <li><a href="<?php echo base_url(); ?>tarif">Tarif Rumah Sakit</a></li>
