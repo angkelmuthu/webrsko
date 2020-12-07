@@ -3,13 +3,13 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Tbl_testimonial extends CI_Controller
+class Tbl_slider_promo extends CI_Controller
 {
     function __construct()
     {
         parent::__construct();
         is_login();
-        $this->load->model('Tbl_testimonial_model');
+        $this->load->model('Tbl_slider_promo_model');
         $this->load->library('form_validation');
         $this->load->library('datatables');
         $this->load->library('upload');
@@ -17,33 +17,37 @@ class Tbl_testimonial extends CI_Controller
 
     public function index()
     {
-        $this->template->load('template', 'tbl_testimonial/tbl_testimonial_list');
+        $this->template->load('template', 'tbl_slider_promo/tbl_slider_list');
     }
 
     public function json()
     {
         header('Content-Type: application/json');
-        echo $this->Tbl_testimonial_model->json();
+        echo $this->Tbl_slider_promo_model->json();
     }
 
     public function read($id)
     {
-        $row = $this->Tbl_testimonial_model->get_by_id($id);
+        $row = $this->Tbl_slider_promo_model->get_by_id($id);
         if ($row) {
             $data = array(
                 'id' => $row->id,
-                'name' => $row->name,
-                'designation' => $row->designation,
                 'photo' => $row->photo,
-                'comment' => $row->comment,
+                'heading' => $row->heading,
+                'content' => $row->content,
+                'button1_text' => $row->button1_text,
+                'button1_url' => $row->button1_url,
+                'button2_text' => $row->button2_text,
+                'button2_url' => $row->button2_url,
+                'position' => $row->position,
             );
-            $this->template->load('template', 'tbl_testimonial/tbl_testimonial_read', $data);
+            $this->template->load('template', 'tbl_slider_promo/tbl_slider_read', $data);
         } else {
             $this->session->set_flashdata('message', '<div class="alert bg-warning-500" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true"><i class="fal fa-times"></i></span>
             </button><strong> Record Not Found</strong></div>');
-            redirect(site_url('tbl_testimonial'));
+            redirect(site_url('tbl_slide_promor'));
         }
     }
 
@@ -51,14 +55,18 @@ class Tbl_testimonial extends CI_Controller
     {
         $data = array(
             'button' => 'Create',
-            'action' => site_url('tbl_testimonial/create_action'),
+            'action' => site_url('tbl_slider_promo/create_action'),
             'id' => set_value('id'),
-            'name' => set_value('name'),
-            'designation' => set_value('designation'),
             'photo' => set_value('photo'),
-            'comment' => set_value('comment'),
+            'heading' => set_value('heading'),
+            'content' => set_value('content'),
+            'button1_text' => set_value('button1_text'),
+            'button1_url' => set_value('button1_url'),
+            'button2_text' => set_value('button2_text'),
+            'button2_url' => set_value('button2_url'),
+            'position' => set_value('position'),
         );
-        $this->template->load('template', 'tbl_testimonial/tbl_testimonial_form', $data);
+        $this->template->load('template', 'tbl_slider_promo/tbl_slider_form', $data);
     }
 
     public function create_action()
@@ -69,7 +77,7 @@ class Tbl_testimonial extends CI_Controller
             $this->create();
         } else {
             if (isset($_FILES["photo"]["name"])) {
-                $config['upload_path'] = './assets/upload/layanan/';
+                $config['upload_path'] = './assets/upload/slider/';
                 $config['allowed_types'] = 'jpg|jpeg|png';
                 $this->upload->initialize($config);
                 if (!$this->upload->do_upload('photo')) {
@@ -79,55 +87,63 @@ class Tbl_testimonial extends CI_Controller
                     $data = $this->upload->data();
                     //Compress Image
                     $config['image_library'] = 'gd2';
-                    $config['source_image'] = './assets/upload/layanan/' . $data['file_name'];
+                    $config['source_image'] = './assets/upload/slider/' . $data['file_name'];
                     $config['create_thumb'] = FALSE;
                     $config['maintain_ratio'] = TRUE;
-                    // $config['quality'] = '60%';
-                    // $config['width'] = 800;
-                    // $config['height'] = 800;
-                    $config['new_image'] = './assets/upload/layanan/' . $data['file_name'];
+                    $config['quality'] = '60%';
+                    $config['width'] = 800;
+                    $config['height'] = 800;
+                    $config['new_image'] = './assets/upload/slider/' . $data['file_name'];
                     $this->load->library('image_lib', $config);
                     $this->image_lib->resize();
                     $image = $data['file_name'];
                 }
             }
             $data = array(
-                'name' => $this->input->post('name', TRUE),
-                'designation' => $this->input->post('designation', TRUE),
                 'photo' => $image,
-                'comment' => $this->input->post('comment', TRUE),
+                'heading' => $this->input->post('heading', TRUE),
+                'content' => $this->input->post('content', TRUE),
+                'button1_text' => $this->input->post('button1_text', TRUE),
+                'button1_url' => $this->input->post('button1_url', TRUE),
+                'button2_text' => $this->input->post('button2_text', TRUE),
+                'button2_url' => $this->input->post('button2_url', TRUE),
+                'position' => $this->input->post('position', TRUE),
             );
 
-            $this->Tbl_testimonial_model->insert($data);
+            $this->Tbl_slider_promo_model->insert($data);
             $this->session->set_flashdata('message', '<div class="alert bg-info-500" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true"><i class="fal fa-times"></i></span>
             </button><strong> Create Record Success 2</strong></div>');
-            redirect(site_url('tbl_testimonial'));
+            redirect(site_url('tbl_slider_promo'));
         }
     }
 
     public function update($id)
     {
-        $row = $this->Tbl_testimonial_model->get_by_id($id);
+        $row = $this->Tbl_slider_promo_model->get_by_id($id);
 
         if ($row) {
             $data = array(
                 'button' => 'Update',
-                'action' => site_url('tbl_testimonial/update_action'),
+                'action' => site_url('tbl_slider_promo/update_action'),
                 'id' => set_value('id', $row->id),
-                'name' => set_value('name', $row->name),
-                'designation' => set_value('designation', $row->designation),
                 'photo' => set_value('photo', $row->photo),
-                'comment' => set_value('comment', $row->comment),
+                'heading' => set_value('heading', $row->heading),
+                'content' => set_value('content', $row->content),
+                'button1_text' => set_value('button1_text', $row->button1_text),
+                'button1_url' => set_value('button1_url', $row->button1_url),
+                'button2_text' => set_value('button2_text', $row->button2_text),
+                'button2_url' => set_value('button2_url', $row->button2_url),
+                'position' => set_value('position', $row->position),
             );
-            $this->template->load('template', 'tbl_testimonial/tbl_testimonial_form', $data);
+            $this->template->load('template', 'tbl_slider_promo/tbl_slider_form', $data);
         } else {
             $this->session->set_flashdata('message', '<div class="alert bg-warning-500" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true"><i class="fal fa-times"></i></span>
             </button><strong> Record Not Found</strong></div>');
-            redirect(site_url('tbl_testimonial'));
+            redirect(site_url('tbl_slider_promo'));
         }
     }
 
@@ -139,7 +155,7 @@ class Tbl_testimonial extends CI_Controller
             $this->update($this->input->post('id', TRUE));
         } else {
             if (isset($_FILES["photo"]["name"])) {
-                $config['upload_path'] = './assets/upload/layanan/';
+                $config['upload_path'] = './assets/upload/slider/';
                 $config['allowed_types'] = 'jpg|jpeg|png';
                 $this->upload->initialize($config);
                 if (!$this->upload->do_upload('photo')) {
@@ -149,68 +165,76 @@ class Tbl_testimonial extends CI_Controller
                     $data = $this->upload->data();
                     //Compress Image
                     $config['image_library'] = 'gd2';
-                    $config['source_image'] = './assets/upload/layanan/' . $data['file_name'];
+                    $config['source_image'] = './assets/upload/slider/' . $data['file_name'];
                     $config['create_thumb'] = FALSE;
                     $config['maintain_ratio'] = TRUE;
-                    // $config['quality'] = '60%';
-                    // $config['width'] = 800;
-                    // $config['height'] = 800;
-                    $config['new_image'] = './assets/upload/layanan/' . $data['file_name'];
+                    $config['quality'] = '60%';
+                    $config['width'] = 800;
+                    $config['height'] = 800;
+                    $config['new_image'] = './assets/upload/slider/' . $data['file_name'];
                     $this->load->library('image_lib', $config);
                     $this->image_lib->resize();
                     $image = $data['file_name'];
                 }
             }
             $data = array(
-                'name' => $this->input->post('name', TRUE),
-                'designation' => $this->input->post('designation', TRUE),
                 'photo' => $image,
-                'comment' => $this->input->post('comment', TRUE),
+                'heading' => $this->input->post('heading', TRUE),
+                'content' => $this->input->post('content', TRUE),
+                'button1_text' => $this->input->post('button1_text', TRUE),
+                'button1_url' => $this->input->post('button1_url', TRUE),
+                'button2_text' => $this->input->post('button2_text', TRUE),
+                'button2_url' => $this->input->post('button2_url', TRUE),
+                'position' => $this->input->post('position', TRUE),
             );
 
-            $this->Tbl_testimonial_model->update($this->input->post('id', TRUE), $data);
+            $this->Tbl_slider_promo_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', '<div class="alert bg-info-500" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true"><i class="fal fa-times"></i></span>
             </button><strong> Update Record Success</strong></div>');
-            redirect(site_url('tbl_testimonial'));
+            redirect(site_url('tbl_slider_promo'));
         }
     }
 
     public function delete($id)
     {
-        $row = $this->Tbl_testimonial_model->get_by_id($id);
+        $row = $this->Tbl_slider_promo_model->get_by_id($id);
 
         if ($row) {
-            $this->Tbl_testimonial_model->delete($id);
+            $this->Tbl_slider_promo_model->delete($id);
             $this->session->set_flashdata('message', '<div class="alert bg-info-500" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true"><i class="fal fa-times"></i></span>
             </button><strong> Delete Record Success</strong></div>');
-            redirect(site_url('tbl_testimonial'));
+            redirect(site_url('tbl_slider_promo'));
         } else {
             $this->session->set_flashdata('message', '<div class="alert bg-warning-500" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true"><i class="fal fa-times"></i></span>
             </button><strong> Record Not Found</strong></div>');
-            redirect(site_url('tbl_testimonial'));
+            redirect(site_url('tbl_slider_promo'));
         }
     }
 
     public function _rules()
     {
-        $this->form_validation->set_rules('name', 'name', 'trim|required');
-        //$this->form_validation->set_rules('designation', 'designation', 'trim|required');
         //$this->form_validation->set_rules('photo', 'photo', 'trim|required');
-        $this->form_validation->set_rules('comment', 'comment', 'trim|required');
+        //$this->form_validation->set_rules('heading', 'heading', 'trim|required');
+        //$this->form_validation->set_rules('content', 'content', 'trim|required');
+        //$this->form_validation->set_rules('button1_text', 'button1 text', 'trim|required');
+        //$this->form_validation->set_rules('button1_url', 'button1 url', 'trim|required');
+        //$this->form_validation->set_rules('button2_text', 'button2 text', 'trim|required');
+        //$this->form_validation->set_rules('button2_url', 'button2 url', 'trim|required');
+        //$this->form_validation->set_rules('position', 'position', 'trim|required');
 
         $this->form_validation->set_rules('id', 'id', 'trim');
         $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 }
 
-/* End of file Tbl_testimonial.php */
-/* Location: ./application/controllers/Tbl_testimonial.php */
+/* End of file Tbl_slider.php */
+/* Location: ./application/controllers/Tbl_slider.php */
 /* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2020-11-30 05:10:21 */
+/* Generated by Harviacode Codeigniter CRUD Generator 2020-11-30 05:06:01 */
 /* http://harviacode.com */

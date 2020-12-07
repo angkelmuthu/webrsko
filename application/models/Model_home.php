@@ -5,7 +5,12 @@ class Model_home extends CI_Model
 {
     public function all_slider()
     {
-        $query = $this->db->query("SELECT * FROM tbl_slider ORDER BY id DESC");
+        $query = $this->db->query("SELECT * FROM tbl_slider where position !='promo' ORDER BY id DESC");
+        return $query->result_array();
+    }
+    public function all_promo()
+    {
+        $query = $this->db->query("SELECT * FROM tbl_slider where position ='promo' ORDER BY id DESC");
         return $query->result_array();
     }
     public function all_service()

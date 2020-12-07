@@ -22,6 +22,7 @@ class Home extends CI_Controller
 		$data['all_news_category2'] = $this->Model_common->all_news_category2();
 
 		$data['sliders'] = $this->Model_home->all_slider();
+		$data['promo'] = $this->Model_home->all_promo();
 		$data['services'] = $this->Model_home->all_service();
 		$data['features'] = $this->Model_home->all_feature();
 		$data['why_choose'] = $this->Model_home->all_why_choose();

@@ -3,7 +3,7 @@
         <div class="col-xl-12">
             <div id="panel-1" class="panel">
                 <div class="panel-hdr">
-                    <h2>INPUT DATA SLIDER</h2>
+                    <h2>INPUT DATA PROMO</h2>
                     <div class="panel-toolbar">
                         <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
                         <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
@@ -18,7 +18,7 @@
 
 
                                 <tr>
-                                    <td width='200'>Gambar Slide <?php echo form_error('photo') ?></td>
+                                    <td width='200'>Gambar Promo <?php echo form_error('photo') ?></td>
                                     <td><input type="file" class="form-control" name="photo" value="<?php echo $photo; ?>" /></td>
                                 </tr>
                                 <tr>
@@ -29,40 +29,26 @@
                                     <td width='200'>Content <?php echo form_error('content') ?></td>
                                     <td><textarea class="form-control" name="content" id="content" placeholder="Content" rows="3"><?php echo $content; ?></textarea></td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td width='200'>Button1 Text <?php echo form_error('button1_text') ?></td>
                                     <td><input type="text" class="form-control" name="button1_text" id="button1_text" placeholder="Button1 Text" value="<?php echo $button1_text; ?>" /></td>
-                                </tr>
+                                </tr> -->
                                 <tr>
-                                    <td width='200'>Button1 Url <?php echo form_error('button1_url') ?></td>
+                                    <td width='200'>Url <?php echo form_error('button1_url') ?></td>
                                     <td><input type="text" class="form-control" name="button1_url" id="button1_url" placeholder="Button1 Url" value="<?php echo $button1_url; ?>" /></td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td width='200'>Button2 Text <?php echo form_error('button2_text') ?></td>
                                     <td><input type="text" class="form-control" name="button2_text" id="button2_text" placeholder="Button2 Text" value="<?php echo $button2_text; ?>" /></td>
                                 </tr>
                                 <tr>
                                     <td width='200'>Button2 Url <?php echo form_error('button2_url') ?></td>
                                     <td><input type="text" class="form-control" name="button2_url" id="button2_url" placeholder="Button2 Url" value="<?php echo $button2_url; ?>" /></td>
-                                </tr>
-                                <tr>
-                                    <td width='200'>Position <?php echo form_error('position') ?></td>
-                                    <td>
-                                        <div class="frame-wrap">
-                                            <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" class="custom-control-input" id="defaultInline1Radio" name="position" value="Left" checked="">
-                                                <label class="custom-control-label" for="defaultInline1Radio">Kiri</label>
-                                            </div>
-                                            <div class="custom-control custom-radio custom-control-inline">
-                                                <input type="radio" class="custom-control-input" id="defaultInline2Radio" name="position" value="Right">
-                                                <label class="custom-control-label" for="defaultInline2Radio">Kanan</label>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <td></td>
                                     <td><input type="hidden" name="id" value="<?php echo $id; ?>" />
+                                        <input type="hidden" name="position" value="promo" />
                                         <button type="submit" class="btn btn-warning waves-effect waves-themed"><i class="fal fa-save"></i> <?php echo $button ?></button>
                                         <a href="<?php echo site_url('tbl_slider') ?>" class="btn btn-info waves-effect waves-themed"><i class="fal fa-sign-out"></i> Kembali</a></td>
                                 </tr>

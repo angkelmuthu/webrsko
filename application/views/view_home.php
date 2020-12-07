@@ -5,9 +5,9 @@
                 <div class="slider">
                     <div class="slide-carousel slider-two owl-carousel">
                         <?php
-                        foreach ($sliders as $slider) {
+                        foreach ($promo as $dt) {
                             ?>
-                            <div class="slider-item flex" style="background-image:url(<?php echo base_url(); ?>public/uploads/<?php echo $slider['photo']; ?>);">
+                            <div class="slider-item flex" style="background-image:url(<?php echo base_url(); ?>rahasia/assets/upload/slider/<?php echo $dt['photo']; ?>);">
                             </div>
                         <?php
                         }
@@ -24,7 +24,7 @@
         <?php
         foreach ($sliders as $slider) {
             ?>
-            <div class="slider-item flex" style="background-image:url(<?php echo base_url(); ?>public/uploads/<?php echo $slider['photo']; ?>);">
+            <div class="slider-item flex" style="background-image:url(<?php echo base_url(); ?>rahasia/assets/upload/slider/<?php echo $slider['photo']; ?>);">
                 <div class="bg-slider"></div>
                 <div class="container">
                     <div class="row">
@@ -527,47 +527,19 @@
                 <div class="col-md-12">
                     <div class="team-carousel owl-carousel">
                         <?php
-                            // $no = 1;
-                            // foreach ($team_members as $row) {
-                            ?>
-                        <div class="team-item">
-                            <div class="team-photo">
-                                <img src="<?php echo base_url(); ?>public/uploads/event-5.jpg" alt="Team Photo">
+                            foreach ($promo as $row) {
+                                ?>
+                            <div class="team-item">
+                                <div class="team-photo">
+                                    <img src="<?php echo base_url(); ?>rahasia/assets/upload/slider/<?php echo $row['photo']; ?>" alt="Promosi Photo">
+                                </div>
+                                <div class="team-text">
+                                    <!-- <a href="<?php echo base_url(); ?>team-member/<?php echo $row['id']; ?>">Promo <?php echo $no++; ?></a> -->
+                                    <a href="<?php echo $row['button1_url']; ?>"><?php echo $row['heading']; ?></a>
+                                </div>
                             </div>
-                            <div class="team-text">
-                                <!-- <a href="<?php echo base_url(); ?>team-member/<?php echo $row['id']; ?>">Promo <?php echo $no++; ?></a> -->
-                                <a href="#">Paket MCU Kesehatan</a>
-                            </div>
-                        </div>
-                        <div class="team-item">
-                            <div class="team-photo">
-                                <img src="<?php echo base_url(); ?>public/uploads/event-5.jpg" alt="Team Photo">
-                            </div>
-                            <div class="team-text">
-                                <!-- <a href="<?php echo base_url(); ?>team-member/<?php echo $row['id']; ?>">Promo <?php echo $no++; ?></a> -->
-                                <a href="#">Paket MCU Napza</a>
-                            </div>
-                        </div>
-                        <div class="team-item">
-                            <div class="team-photo">
-                                <img src="<?php echo base_url(); ?>public/uploads/event-5.jpg" alt="Team Photo">
-                            </div>
-                            <div class="team-text">
-                                <!-- <a href="<?php echo base_url(); ?>team-member/<?php echo $row['id']; ?>">Promo <?php echo $no++; ?></a> -->
-                                <a href="#">Paket SBN Pelajar</a>
-                            </div>
-                        </div>
-                        <div class="team-item">
-                            <div class="team-photo">
-                                <img src="<?php echo base_url(); ?>public/uploads/event-5.jpg" alt="Team Photo">
-                            </div>
-                            <div class="team-text">
-                                <!-- <a href="<?php echo base_url(); ?>team-member/<?php echo $row['id']; ?>">Promo <?php echo $no++; ?></a> -->
-                                <a href="#">Paket SBN CPNS</a>
-                            </div>
-                        </div>
                         <?php
-                            //}
+                            }
                             ?>
                     </div>
                 </div>

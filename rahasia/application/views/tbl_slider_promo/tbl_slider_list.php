@@ -3,7 +3,7 @@
         <div class="col-xl-12">
             <div id="panel-1" class="panel">
                 <div class="panel-hdr">
-                    <h2>KELOLA DATA SLIDER</h2>
+                    <h2>KELOLA DATA PROMO</h2>
                     <div class="panel-toolbar">
                         <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
                         <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
@@ -13,7 +13,7 @@
                 <div class="panel-container show">
                     <div class="panel-content">
                         <div class="text-center">
-                            <?php echo anchor(site_url('tbl_slider/create'), '<i class="fal fa-plus-square" aria-hidden="true"></i> Tambah Data', 'class="btn btn-primary btn-sm waves-effect waves-themed"'); ?></div>
+                            <?php echo anchor(site_url('tbl_slider_promo/create'), '<i class="fal fa-plus-square" aria-hidden="true"></i> Tambah Data', 'class="btn btn-primary btn-sm waves-effect waves-themed"'); ?></div>
                         <table class="table table-bordered table-hover table-striped w-100" id="dt-basic-example">
                             <thead>
                                 <tr>
@@ -21,11 +21,7 @@
                                     <th>Photo</th>
                                     <th>Heading</th>
                                     <th>Content</th>
-                                    <th>Button1 Text</th>
                                     <th>Button1 Url</th>
-                                    <th>Button2 Text</th>
-                                    <th>Button2 Url</th>
-                                    <th>Position</th>
                                     <th width="200px">Action</th>
                                 </tr>
                             </thead>
@@ -72,7 +68,7 @@
             processing: true,
             serverSide: true,
             ajax: {
-                "url": "tbl_slider/json",
+                "url": "tbl_slider_promo/json",
                 "type": "POST"
             },
             columns: [{
@@ -85,15 +81,7 @@
                 }, {
                     "data": "content"
                 }, {
-                    "data": "button1_text"
-                }, {
                     "data": "button1_url"
-                }, {
-                    "data": "button2_text"
-                }, {
-                    "data": "button2_url"
-                }, {
-                    "data": "position"
                 },
                 {
                     "data": "action",
