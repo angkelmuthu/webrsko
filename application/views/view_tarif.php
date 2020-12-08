@@ -3,7 +3,7 @@
     <div class="bg"></div>
     <div class="bannder-table">
         <div class="banner-text">
-            <h1>Jadwal Dokter</h1>
+            <h1>Tarif Rumah Sakit</h1>
         </div>
     </div>
 </div>
