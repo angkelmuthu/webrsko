@@ -2185,7 +2185,7 @@ Team
 	display: inline-block;
 	font-size: 20px;
 	font-weight: 700;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 	color: #fff;
 	margin-bottom: 4px;
 	text-decoration: none;
