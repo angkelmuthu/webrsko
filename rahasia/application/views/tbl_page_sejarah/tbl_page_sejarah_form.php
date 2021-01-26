@@ -17,8 +17,6 @@
                         <form action="<?php echo $action; ?>" method="post">
 
                             <table class='table table-striped'>
-
-
                                 <tr>
                                     <td width='200'>Sejarah Heading <?php echo form_error('sejarah_heading') ?></td>
                                     <td><input type="text" class="form-control" name="sejarah_heading" id="sejarah_heading" placeholder="Sejarah Heading" value="<?php echo $sejarah_heading; ?>" /></td>

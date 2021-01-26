@@ -112,7 +112,7 @@ class Tbl_portfolio extends CI_Controller
         } else {
             if (isset($_FILES["photo"]["name"])) {
                 $config['upload_path'] = './assets/upload/laporan/';
-                $config['allowed_types'] = 'pdf';
+                $config['allowed_types'] = 'pdf|jpg|png';
                 $this->load->library('upload', $config);
                 $this->upload->initialize($config);
                 if (!$this->upload->do_upload('photo')) {
